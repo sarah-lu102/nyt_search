@@ -1,0 +1,68 @@
+<!--<!DOCTYPE html>-->
+<html>
+	<head>
+		<title>NYT API</title>
+
+		<style>
+			a.one{font-size: 50px;}
+			a.one{text-decoration:none;}
+			a.one{color: #B5D99C;}
+
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+
+		var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+		url += '?' + $.param({
+		  'api-key': "7585392444dd47af824efa8ea383e9a5",
+		  'q': "rights"
+		});
+		$.ajax({
+		  url: url,
+		  method: 'GET',
+		}).done(function(result) {
+		  console.log(result);
+
+		  	//get headline
+		  	document.getElementById("headline").innerHTML = result.response.docs["0"].headline.main;
+		  	//get snippet
+		  	document.getElementById("snippet").innerHTML = result.response.docs["0"].snippet;
+
+		  	var link = result.response.docs["0"].web_url;
+
+		  	//get link (works. edit last " " before </a> to edit hyperlink)
+		  	$("#testlink").append("<a href='"+link+"' rel='external' data-direction='reverse' class = 'one'>" +"L I N K"+"</a>";
+
+
+		 //get link
+		//  $.getJSON(url,function(data){
+  //  		$("#somelink").attr('href', result.response.docs["0"].web_url);
+		// });
+
+
+		}).fail(function(err) {
+		  throw err;
+		})
+		</script>
+
+
+	</head>
+
+	<body>
+		<h3>Headline: </h3>
+		<p id = "headline"></p>
+
+		<h3>Snippet: </h3>
+		<p id = "snippet"></p>		
+
+<!-- 		<h3>link: </h3>
+		<a id="somelink" href="#">click here</a> -->
+
+		<br>
+
+		<p id = "testlink"><p>
+
+		
+	</body>
+</html>
