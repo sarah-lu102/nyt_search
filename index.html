@@ -2,12 +2,9 @@
 <html>
 	<head>
 		<title>NYT API</title>
-
+  <link rel="stylesheet" href="style.css">
 		<style>
-			a.one{font-size: 50px;}
-			a.one{text-decoration:none;}
-			a.one{color: #B5D99C;}
-			a.one{display: block;}
+
 
 		</style>
 
@@ -39,17 +36,15 @@
 		  	//get snippet
 		  	document.getElementById("snippet").innerHTML = result.response.docs[rand].snippet;
 
+		  	//get section name
+		  	document.getElementById("section_name").innerHTML = result.response.docs[rand].section_name;
+
 		  	var link = result.response.docs[rand].web_url;
 		  	count++;
 
 		  	//get link (works. edit last " " before </a> to edit hyperlink)
-		  	$("#testlink").append("<a href='"+link+"' rel='external' data-direction='reverse' class = 'one'>" +count + " - " +query + "</a>");
+		  	$("#getlink").append("<a href='"+link+"' rel='external' data-direction='reverse' class = 'one'>" +count + " - " +query + "</a>");
 
-
-		 //get link
-		//  $.getJSON(url,function(data){
-  //  		$("#somelink").attr('href', result.response.docs["0"].web_url);
-		// });
 
 
 		}).fail(function(err) {
@@ -67,6 +62,16 @@
 	</head>
 
 	<body>
+	<!-- 	textbox and button-->
+		<div>	
+		<input type="text" id="myText" placeholder="enter query here">
+		<button id = "button" onclick="getQuery()">Search</button>
+
+		<div>
+		<h2>IN: </h2>
+		<p id = "section_name""></p>
+		</div>
+
 		<h3>Headline: </h3>
 		<p id = "headline"></p>
 
@@ -78,13 +83,10 @@
 
 		<br>
 
-		<p id = "testlink"><p>
+		<p id = "getlink"><p>
 
-<!-- 	textbox and button-->	
-		<input type="text" id="myText" placeholder="enter query here">
-		<button onclick="getQuery()">Try it</button>
-<!-- 		<textarea rows="4" cols="50" placeholder="Enter query here!"></textarea>
- -->
+
+
 		
 	</body>
 </html>
