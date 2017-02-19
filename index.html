@@ -13,18 +13,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script>
 
-		var query = "rights";
-
-		function getQuery() {
-		query = document.getElementById("myText").value;
-		}
-
-		//document.write(query);
-
 		var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 		url += '?' + $.param({
 		  'api-key': "7585392444dd47af824efa8ea383e9a5",
-		  'q': query
+		  'q': "rights"
 		});
 		$.ajax({
 		  url: url,
@@ -71,11 +63,6 @@
 
 		<p id = "testlink"><p>
 
-<!-- 	textbox and button-->	
-		<input type="text" id="myText" placeholder="enter query here">
-		<button onclick="getQuery()">Try it</button>
-<!-- 		<textarea rows="4" cols="50" placeholder="Enter query here!"></textarea>
- -->
 		
 	</body>
 </html>
