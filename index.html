@@ -7,6 +7,7 @@
 			a.one{font-size: 50px;}
 			a.one{text-decoration:none;}
 			a.one{color: #B5D99C;}
+			a.one{display: block;}
 
 		</style>
 
@@ -17,10 +18,8 @@
 
 		function getQuery() {
 		query = document.getElementById("myText").value;
-		}
 
-		//document.write(query);
-
+		//start copied code
 		var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 		url += '?' + $.param({
 		  'api-key': "7585392444dd47af824efa8ea383e9a5",
@@ -31,6 +30,8 @@
 		  method: 'GET',
 		}).done(function(result) {
 		  console.log(result);
+
+		  var rand = Math.floor((Math.random() * 10);
 
 		  	//get headline
 		  	document.getElementById("headline").innerHTML = result.response.docs["0"].headline.main;
@@ -52,6 +53,12 @@
 		}).fail(function(err) {
 		  throw err;
 		})
+
+		}
+
+		//document.write(query);
+
+
 		</script>
 
 
