@@ -45,8 +45,7 @@
 		  	count++;
 
 		  	//get link (works. edit last " " before </a> to edit hyperlink)
-		  	$("#getlink").append("<a href='"+link+"' rel='external' data-direction='reverse' class = 'one'>" +count + " - " +query + "</a>");
-
+		  	$("#getlink").append("<a href='"+link+"' rel='external' data-direction='reverse' class = 'one'>" + "Article " + count + "</a>");
 
 
 		}).fail(function(err) {
@@ -84,6 +83,7 @@
 		<br>
 
 		<p id = "getlink"><p>
+
 
 
 
