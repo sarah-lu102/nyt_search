@@ -4,7 +4,7 @@
 
 	#input{
 	margin: 0 auto;
-	margin-top:100px;
+	margin-top:0px;
     width: 600px;
 	}
 
@@ -94,7 +94,7 @@
 
 	#snippet{
 		font-size:20px;
-		color: #B5D99C;
+		color: #84A98C;
 		font-style: oblique;
 		font-family: 'Source Serif Pro', serif;
 
@@ -104,5 +104,6 @@
 		width: 75%;
     	margin: 0 auto; 
 	}
+
 
 
