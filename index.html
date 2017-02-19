@@ -3,6 +3,7 @@
 	<head>
 		<title>NYT API</title>
   <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Patua+One|Raleway|Roboto|Source+Serif+Pro" rel="stylesheet">
 		<style>
 
 
@@ -37,7 +38,8 @@
 		  	document.getElementById("snippet").innerHTML = result.response.docs[rand].snippet;
 
 		  	//get section name
-		  	document.getElementById("section_name").innerHTML = result.response.docs[rand].section_name;
+		  	document.getElementById("section_name").innerHTML = "{In: " + result.response.docs[rand].section_name + "}";
+		  	//$("#intext").append("<p>In:</p>");
 
 		  	var link = result.response.docs[rand].web_url;
 		  	count++;
@@ -53,8 +55,6 @@
 
 		}
 
-		//document.write(query);
-
 
 		</script>
 
@@ -63,23 +63,23 @@
 
 	<body>
 	<!-- 	textbox and button-->
-		<div>	
+		<div id = "input">	
 		<input type="text" id="myText" placeholder="enter query here">
 		<button id = "button" onclick="getQuery()">Search</button>
+		</div>
 
-		<div>
-		<h2>IN: </h2>
+		<div id = "in">
+		<h2></h2>
 		<p id = "section_name""></p>
 		</div>
 
-		<h3>Headline: </h3>
+		<div class = "newsInfoDiv">
 		<p id = "headline"></p>
+		</div>
 
-		<h3>Snippet: </h3>
+		<div class = "newsInfoDiv">
 		<p id = "snippet"></p>		
-
-<!-- 		<h3>link: </h3>
-		<a id="somelink" href="#">click here</a> -->
+		</div>
 
 		<br>
 
